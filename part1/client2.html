@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>KF6012 WK10</title>
+</head>
+<body>
+  <header>
+    <h1>Open the console!</h1>
+  </header>
+  <main>  
+    <div id="tracker"></div>
+  </main>
+  <script type="text/javascript">
+  
+  let myJSON = {"email":"john@example.com", "password":"johnpassword"};
+
+  fetch('http://localhost/wai/part1/api/login/', {
+          method: 'POST',
+          headers : new Headers(),
+          body:JSON.stringify(myJSON)})
+    .then(
+      function (response) {
+
+        return response.json();
+      })
+    .then(
+      function(data) {
+        console.log(data);
+      }
+        
+      )
+    .catch(function (err) {
+          console.log("Something went wrong!", err);
+      }
+      );
+
+  </script>
+</body>
+</html>

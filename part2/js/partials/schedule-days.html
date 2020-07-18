@@ -1,0 +1,40 @@
+<!-- <div ng-repeat="p in schedules | unique: 'day'">
+    <p>{{p.day}}</p>
+</div> -->
+
+<select ng-model="typeSelect" ng-options="t.type for t in types" ng-change="typeSelected()">
+</select>
+
+Search: <input ng-model="query" />
+
+<h4>There are {{filtered.length}} of {{sesscCount}} sessions available</h4>
+<br>
+<br>
+<div class="schedule" ng-repeat="(key, value) in schedules | orderBy: 'time' | groupBy:ourGrouper">
+    <div class="time">
+        <h1>{{key}}
+            <button type="button" class="btn btn-dark" id="view-all" data-ng-click="selectAll()">View
+                All</button>
+            <button type="button" class="btn btn-dark" id="view-sum" ng-click="myFunc()">View
+                Summary</button></h1>
+    </div>
+
+
+    <div class="row" id="center">
+        <div ng-show="showMe">
+            <div ng-repeat="s in value | orderBy: 'time' | filter:query as schedules"
+                data-ng-click="selectSlot($event, s)">
+                <div class="col-sm-3" style="border-style:solid; height: 200px; margin-left: 15px; margin-bottom: 5px;">
+                    <strong>{{s.description}}:</strong>
+                    <h4 class="title">{{s.title}}</h4>
+                    <p>{{s.room}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>

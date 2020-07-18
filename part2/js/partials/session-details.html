@@ -1,0 +1,21 @@
+<div ng-repeat="(key, value) in paperSlot | orderBy: 'id' | groupBy: '[title]' ">
+    <div>
+        <h3>{{key}}</h3>
+    </div>
+
+    <div ng-repeat="p in value | orderBy: 'id'">
+        <p>{{p.author + ' - ' + p.affiliation}}</p>
+    </div>
+    <div ng-repeat="p in value | orderBy: 'id' | unique: 'abstract'">
+        <a ng-click="myAbstract()">Show Abstract</a>
+        <p ng-show="abstract">{{p.abstract}}</p>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

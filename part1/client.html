@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>KF6012 WK10</title>
+</head>
+<body>
+  <header>
+    <h1>Open the console!</h1>
+  </header>
+  <main>  
+  </main>
+  <script type="text/javascript">
+  
+  let myJSON = {"email":"jerry@sfilms.com", "id":1, "description":"test", "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImplcnJ5QHNmaWxtcy5jb20iLCJleHAiOiJoZWxsbyJ9.DKFe9O4chTe1eXzoQg2MEIddeKJl99xiCk5Cvw2ffPY"};
+
+  fetch('http://localhost/wai/part1/api/update/', {
+          method: 'POST',
+          headers : new Headers(),
+          body:JSON.stringify(myJSON)})
+    .then(
+      function (response) {
+
+        return response.json();
+      })
+    .then(
+      function(data) {
+        console.log(data);
+      }
+        
+      )
+    .catch(function (err) {
+          console.log("Something went wrong!", err);
+      }
+      );
+
+  </script>
+</body>
+</html>

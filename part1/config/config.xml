@@ -1,0 +1,4 @@
+<config>
+   <JWTKey>test</JWTKey>
+   <dbname>sqlite:db/chi2019.sqlite</dbname>
+</config>
